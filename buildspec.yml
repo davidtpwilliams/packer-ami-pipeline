@@ -15,7 +15,7 @@ phases:
       - echo "Packer url $packer_url"
       - echo "curl -qL -o packer.zip $packer_url && unzip -o packer.zip"
       - echo "$(pwd)"
-      - echo "ls -la"
+      - echo "$(ls -la)"
       - curl -qL -o packer.zip https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip && unzip -o packer.zip
       - mv ./packer /usr/bin
       - packer --version
