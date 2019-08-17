@@ -9,17 +9,8 @@ phases:
     commands:
       - apt-get update || echo "Failed to run apt-get update."
       - apt-get install jq -y || echo "Failed to install and/or update jq."
-      - echo "Installing HashiCorp Packer from latest available version..."
-      - packer_url=$(curl https://releases.hashicorp.com/index.json | jq '{packer}' | egrep "linux.*amd64" | sort --version-sort -r | head -1 | awk -F[\"] '{print $4}')
-      - packer_url="https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip"
-      - echo "Packer url $packer_url"
-      - echo "curl -qL -o packer.zip $packer_url && unzip -o packer.zip"
-      - echo "$(pwd)"
-      - echo "$(ls -la)"
-      - curl -qL -o packer.zip https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip && unzip -o packer.zip
-      - mv ./packer /usr/bin
-      - packer --version
-      - rm -rf packer.zip
+      - wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
+      - unzip packer_1.0.0_linux_amd64.zip
   pre_build:
     commands:
       - curl -qL 169.254.170.2/$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI > credentials.json
@@ -30,5 +21,4 @@ phases:
       - echo "aws_session_token = $(cat credentials.json | jq '.Token' | sed s'/"//g')" >> ~/.aws/credentials
   build:
     commands:
-      - 
-      - /usr/bin/packer build -var "aws_region=ap-southeast-2" "deploy/packerwindows.json"
+      - ./packer build -var "aws_region=ap-southeast-2" "deploy/packerwindows.json"
