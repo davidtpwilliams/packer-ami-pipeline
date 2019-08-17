@@ -12,6 +12,7 @@ phases:
       - echo "Installing HashiCorp Packer from latest available version..."
       - packer_url=$(curl https://releases.hashicorp.com/index.json | jq '{packer}' | egrep "linux.*amd64" | sort --version-sort -r | head -1 | awk -F[\"] '{print $4}')
       - echo "Packer url $packer_url"
+      - packer_url="https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip"
       - echo "curl -qL -o packer.zip $packer_url && unzip -o packer.zip"
       - curl -qL -o packer.zip $packer_url && unzip -o packer.zip
       - mv ./packer /usr/bin
