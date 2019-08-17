@@ -16,6 +16,7 @@
     "ami_name": "packer-ami-pipeline-demo-{{timestamp}}",
     "vpc_id": "vpc-01aa0887f76324a5d",
     "subnet_id": "subnet-0a60a8beab2e84525",
+    "associate_public_ip_address":true,
     "winrm_username": "administrator",
     "user_data_file":"deploy/scripts/user-data.ps1"
   }],

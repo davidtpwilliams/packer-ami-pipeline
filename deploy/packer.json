@@ -16,7 +16,8 @@
     "ssh_pty" : true,
     "ami_name": "packer-ami-pipeline-demo-{{timestamp}}",
     "vpc_id": "vpc-0217eb05d39e95005",
-    "subnet_id": "subnet-0eae024ac5530a5a3"
+    "subnet_id": "subnet-0eae024ac5530a5a3",
+    "associate_public_ip_address":true
   }],
   "provisioners": [{
     "type": "shell",
