@@ -1,0 +1,10 @@
+template_path: packer-ami-pipeline.yaml
+parameters:
+  RepositoryName: "packer-ami-pipeline"
+  RepositoryOwner: "davidtpwilliams"
+  RepositoryDescription: "AMI Builder repository stuff." 
+  PipelineName: "sesha_ami-builder"
+  OAuthToken: "{{stack_group_config.OAuthToken}}"
+  RepositoryBranch: "master"
+  ProjectName: "sesha_CodeBuild"
+  CodeBuildImage: "aws/codebuild/ubuntu-base:14.04"

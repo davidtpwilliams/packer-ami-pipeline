@@ -1,0 +1,5 @@
+template_path: packer-ami-pipeline-roles.yaml
+
+parameters:
+  CodePipelineRoleName: "CodePipeLineRole"
+  CodeBuildRoleName: "CodeBuildRole"

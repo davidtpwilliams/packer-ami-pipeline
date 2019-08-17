@@ -1,4 +1,0 @@
-project_code: packer-ami
-region: ap-southeast-2
-Owner: "DavidWilliams"
-OAuthToken: "your token here"
